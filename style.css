@@ -11,6 +11,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 /* CONTAINER */
@@ -30,12 +31,25 @@ body {
     align-items: center;
 }
 
-.logo {
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 1px;
+/* LOGO ASCII */
+.ascii-logo {
+    font-family: monospace;
+    font-size: 8px; /* Dimensione dei tasselli ASCII */
+    line-height: 1.2;
+    color: #444444; /* Grigio scuro di partenza */
+    user-select: none; /* Impedisce la selezione del testo */
+    cursor: default;
+    white-space: pre;
 }
 
+/* I singoli caratteri ASCII animati */
+.ascii-char {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    will-change: transform;
+}
+
+/* NAVIGAZIONE */
 .nav a {
     color: #888888;
     text-decoration: none;
@@ -51,8 +65,9 @@ body {
 /* GRIGLIA SCHEDE (CARDS) */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colonne pulite */
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
+    margin-top: 2rem;
     margin-bottom: 8rem;
 }
 
@@ -64,8 +79,8 @@ body {
 }
 
 .card-image {
-    background-color: #111111; /* Grigio scuro per i placeholder delle immagini */
-    aspect-ratio: 4 / 3; /* Formato standard fotografico */
+    background-color: #111111;
+    aspect-ratio: 4 / 3;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
@@ -80,6 +95,7 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .placeholder-text {
@@ -116,7 +132,7 @@ body {
 
 .info-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Layout asimmetrico minimale */
+    grid-template-columns: 1fr 2fr;
     gap: 2rem;
 }
 
@@ -161,10 +177,25 @@ body {
     text-align: left;
 }
 
-/* RESPONSIVE (per schermi di telefoni) */
+/* ==========================================
+   REVEAL ALLO SCROLL (Stato Iniziale)
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .grid {
-        grid-template-columns: 1fr; /* Una colonna sui telefoni */
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
     .info-grid {
