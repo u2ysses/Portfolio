@@ -3,56 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Designer Portfolio</title>
+    <title>Portfolio | Visual Designer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <span class="logo">Nome Cognome</span>
-            <div class="nav-links">
-                <a href="#projects">Progetti</a>
-                <a href="#about">Info</a>
-            </div>
+    <!-- HEADER / NAVIGAZIONE -->
+    <header class="header">
+        <div class="logo">TUO NOME</div>
+        <nav class="nav">
+            <a href="#lavori">Lavori</a>
+            <a href="#info">Info</a>
+            <a href="#contatti">Contatti</a>
         </nav>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <h1 class="hero-title" data-speed="-2">VISUAL<br>DESIGN</h1>
-            <div class="hero-shape" data-speed="4"></div>
-            <p class="hero-subtitle" data-speed="1">Portfolio 2026 — Selezionato con cura.</p>
-        </section>
-
-        <section id="projects" class="projects-section">
-            <h2 class="section-title">Lavori</h2>
-            <div class="grid">
-                
-                <div class="project-card" data-tilt>
-                    <div class="card-inner">
-                        <div class="card-image" style="background-image: url('https://picsum.photos/600/800?random=1');"></div>
-                        <div class="card-info">
-                            <h3>Brand Identity</h3>
-                            <p>Studio d'immagine coordinata</p>
-                        </div>
-                    </div>
+    <!-- GRIGLIA PROGETTI -->
+    <main class="container" id="lavori">
+        <section class="grid">
+            
+            <!-- SCHEDA PROGETTO 1 -->
+            <a href="progetto-01.html" class="card">
+                <div class="card-image">
+                    <img src="img/progetto1.jpg" alt="Copertina Progetto 1" onerror="this.style.display='none';">
+                    <span class="placeholder-text">Progetto 01</span>
                 </div>
-
-                <div class="project-card" data-tilt>
-                    <div class="card-inner">
-                        <div class="card-image" style="background-image: url('https://picsum.photos/600/800?random=2');"></div>
-                        <div class="card-info">
-                            <h3>Editorial Design</h3>
-                            <p>Progetto editoriale e tipografico</p>
-                        </div>
-                    </div>
+                <div class="card-meta">
+                    <span class="category">Brand Identity / 3D</span>
+                    <h2 class="title">Concept Art - Project Alpha</h2>
                 </div>
+            </a>
 
-            </div>
+            <!-- SCHEDA PROGETTO 2 -->
+            <a href="progetto-02.html" class="card">
+                <div class="card-image">
+                    <img src="img/progetto2.jpg" alt="Copertina Progetto 2" onerror="this.style.display='none';">
+                    <span class="placeholder-text">Progetto 02</span>
+                </div>
+                <div class="card-meta">
+                    <span class="category">Motion Graphics</span>
+                    <h2 class="title">Rhythm & Shape Video</h2>
+                </div>
+            </a>
+
+            <!-- SCHEDA PROGETTO 3 -->
+            <a href="progetto-03.html" class="card">
+                <div class="card-image">
+                    <img src="img/progetto3.jpg" alt="Copertina Progetto 3" onerror="this.style.display='none';">
+                    <span class="placeholder-text">Progetto 03</span>
+                </div>
+                <div class="card-meta">
+                    <span class="category">Visual Design</span>
+                    <h2 class="title">Editorial Poster Series</h2>
+                </div>
+            </a>
+
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <!-- SEZIONE INFO -->
+    <section class="container info-section" id="info">
+        <div class="info-grid">
+            <h2>Chi Sono</h2>
+            <p>Sono un visual designer focalizzato sulla creazione di identità visive, render 3D e sperimentazione digitale. Unisco rigore geometrico ed estetica contemporanea per dare vita a concetti complessi in modo minimale.</p>
+        </div>
+    </section>
+
+    <!-- SEZIONE CONTATTI -->
+    <section class="container contact-section" id="contatti">
+        <h2>Iniziamo a collaborare</h2>
+        <p>Hai un progetto in mente? Scrivimi a <a href="mailto:tuamail@esempio.com">tuamail@esempio.com</a></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Tuo Nome. Built with simplicity.</p>
+    </footer>
+
 </body>
 </html>

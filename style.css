@@ -1,36 +1,30 @@
-/* Reset & Variabili */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --bg-color: #0d0d0d;
-    --text-color: #f5f5f7;
-    --accent-color: #ff3e3e;
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
-}
-
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-sans);
-    overflow-x: hidden;
-    line-height: 1.6;
+    background-color: #000000; /* Nero assoluto */
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Header */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 2rem 4%;
-    z-index: 100;
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-nav {
+/* HEADER */
+.header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,121 +32,142 @@ nav {
 
 .logo {
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.nav-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin-left: 2rem;
-    font-size: 0.9rem;
-    transition: opacity 0.3s;
-}
-
-.nav-links a:hover {
-    opacity: 0.6;
-}
-
-/* Hero Section (Scroll Parallax) */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 10%;
-}
-
-.hero-title {
-    font-size: clamp(4rem, 10vw, 8rem);
-    line-height: 0.9;
-    font-weight: 900;
-    letter-spacing: -2px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.hero-subtitle {
-    margin-top: 2rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 1px;
-    z-index: 2;
 }
 
-/* Elemento grafico fluttuante in background */
-.hero-shape {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
-    opacity: 0.4;
-    border-radius: 50%;
-    filter: blur(20px);
-    top: 30%;
-    left: 20%;
-    z-index: 1;
-    pointer-events: none;
+.nav a {
+    color: #888888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-left: 1.5rem;
+    transition: color 0.2s ease;
 }
 
-/* Griglia Progetti (Tilt Parallax) */
-.projects-section {
-    padding: 10% 4%;
+.nav a:hover {
+    color: #ffffff;
 }
 
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-}
-
+/* GRIGLIA SCHEDE (CARDS) */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 4rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonne pulite */
+    gap: 2.5rem;
+    margin-bottom: 8rem;
 }
 
-/* Stile Card Tilt (Interattività del Mouse) */
-.project-card {
-    position: relative;
-    height: 500px;
-    perspective: 1000px; /* Abilita l'effetto 3D */
-    cursor: pointer;
-}
-
-.card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease-out;
+/* LA SINGOLA SCHEDA */
+.card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .card-image {
+    background-color: #111111; /* Grigio scuro per i placeholder delle immagini */
+    aspect-ratio: 4 / 3; /* Formato standard fotografico */
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #222222;
+}
+
+.card-image img {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%);
-    transition: filter 0.5s ease;
-    transform: translateZ(20px); /* Spinge l'immagine leggermente in avanti nello spazio 3D */
+    object-fit: cover;
+    display: block;
 }
 
-.project-card:hover .card-image {
-    filter: grayscale(0%);
-}
-
-.card-info {
+.placeholder-text {
     position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    transform: translateZ(40px); /* Le scritte fluttuano ancora più avanti rispetto all'immagine */
-    pointer-events: none;
+    color: #444444;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
 
-.card-info h3 {
-    font-size: 1.8rem;
+.card-meta {
+    margin-top: 1rem;
+}
+
+.category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666666;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    color: #ffffff;
+}
+
+/* SEZIONE INFO & CONTATTI */
+.info-section {
+    border-top: 1px solid #111111;
+    padding-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Layout asimmetrico minimale */
+    gap: 2rem;
+}
+
+.info-grid h2 {
+    font-size: 1.2rem;
     font-weight: 600;
+}
+
+.info-grid p {
+    font-size: 1.1rem;
+    color: #888888;
+}
+
+.contact-section {
+    border-top: 1px solid #111111;
+    padding-top: 6rem;
+    margin-bottom: 8rem;
+}
+
+.contact-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    color: #888888;
+}
+
+.contact-section a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* FOOTER */
+.footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    border-top: 1px solid #111111;
+    color: #444444;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+/* RESPONSIVE (per schermi di telefoni) */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; /* Una colonna sui telefoni */
+        gap: 2rem;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
 }
